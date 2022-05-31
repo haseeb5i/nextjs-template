@@ -1,7 +1,9 @@
-import React from "react";
+import { useState } from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { darkTheme, globalStyles } from "@/theme";
-import { SessionProvider } from "next-auth/react";
+import { QueryClientProvider, Hydrate } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+import { createQueryClient } from "@/lib/react-query";
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
 
@@ -14,8 +16,11 @@ type CustomAppProps = AppProps & {
 };
 
 export default function App(props: CustomAppProps) {
-  globalStyles();
   const { Component, pageProps } = props;
+  const [queryClient] = useState(createQueryClient);
+
+  globalStyles();
+
   return (
     <NextThemesProvider
       attribute="class"
@@ -24,9 +29,12 @@ export default function App(props: CustomAppProps) {
         dark: darkTheme.className,
       }}
     >
-      <SessionProvider session={pageProps.session} refetchInterval={0}>
-        <Component {...pageProps} />
-      </SessionProvider>
+      <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools initialIsOpen={false} />
+        <Hydrate state={pageProps.dehydratedState}>
+          <Component {...pageProps} />
+        </Hydrate>
+      </QueryClientProvider>
     </NextThemesProvider>
   );
 }

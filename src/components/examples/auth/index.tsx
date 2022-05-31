@@ -1,5 +1,6 @@
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 import styles from "./auth.module.css";
+import { useSession } from "@/hooks/useSession";
 
 export default function AuthHeader() {
   const { data: session, status } = useSession();

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import ThemeToggle from "@/components/examples/theme-toggle";
-import FetchExample from "@/components/examples/fetch";
+import ReactQueryExample from "@/components/examples/react-query";
 import Counter from "@/components/examples/counter";
 import AuthHeader from "@/components/examples/auth";
 import { Text } from "@/components/elements";
@@ -32,7 +32,7 @@ export default function Home() {
       </Text>
 
       <ThemeToggle />
-      <FetchExample />
+      <ReactQueryExample />
       <Counter />
       <IntlExample />
 
