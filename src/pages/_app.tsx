@@ -14,8 +14,10 @@ type CustomAppProps = AppProps & {
 };
 
 export default function App(props: CustomAppProps) {
-  globalStyles();
   const { Component, pageProps } = props;
+
+  globalStyles();
+
   return (
     <NextThemesProvider
       attribute="class"
@@ -24,7 +26,7 @@ export default function App(props: CustomAppProps) {
         dark: darkTheme.className,
       }}
     >
-      <SessionProvider session={pageProps.session} refetchInterval={0}>
+      <SessionProvider session={pageProps.session} refetchInterval={5 * 60}>
         <Component {...pageProps} />
       </SessionProvider>
     </NextThemesProvider>
