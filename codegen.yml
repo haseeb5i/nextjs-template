@@ -1,0 +1,20 @@
+schema: "https://api.spacex.land/graphql"
+documents: "./src/**/*.{ts,tsx}"
+generates:
+  ./src/generated.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-query
+    config:
+      fetcher:
+        endpoint: "https://api.spacex.land/graphql"
+        fetchParams:
+          headers:
+            Content-Type: "application/json"
+      exposeQueryKeys: true
+      exposeDocument: true
+      exposeFetcher: true
+hooks:
+  afterAllFileWrite:
+    - prettier --write

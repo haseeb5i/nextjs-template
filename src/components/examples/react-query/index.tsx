@@ -1,22 +1,8 @@
 import { Box } from "@/components/layout";
-import { useQuery } from "react-query";
-
-interface Joke {
-  id: number;
-  joke: string;
-  setup: string;
-  delivery: string;
-  safe: boolean;
-}
-
-async function getJoke(): Promise<Joke> {
-  return fetch("https://v2.jokeapi.dev/joke/Programming?type=twopart").then(
-    (resp) => resp.json()
-  );
-}
+import { useLaunchesQuery } from "@/generated";
 
 const ReactQueryExample = () => {
-  const query = useQuery(["joke"], getJoke);
+  const query = useLaunchesQuery({ limit: 10 });
 
   if (query.isLoading) {
     return <div>Loading...</div>;
@@ -35,21 +21,29 @@ const ReactQueryExample = () => {
           p: "$md",
           mb: "$5",
           borderRadius: "$sm",
-          textTransform: "",
         }}
       >
-        React Query Data Fetch Example
+        Server state management with react-query
       </Box>
       <Box css={{ px: "$md" }}>
-        <p>Programmer Jokes {`#${query.data?.id}`}</p>
-        <p>{query.data?.setup}</p>
-        <p>{query.data?.delivery}</p>
-      </Box>
-      <Box css={{ px: "$md" }}>
-        <div>{query.isFetching ? "Updating..." : "Fetch Done"}</div>
-        <p>
-          <button onClick={() => query.refetch()}>update manually</button>
-        </p>
+        <div>
+          {query.data?.launchesPast?.map((launch) => {
+            return (
+              <div key={launch?.id}>
+                <span>{launch?.id}</span> <span>{launch?.mission_name}</span>
+              </div>
+            );
+          })}
+        </div>
+        <div style={{ marginBlock: "7px" }}>
+          {query.isFetching ? "Updating..." : "Fetch Done"}
+          <button
+            style={{ marginLeft: "10px" }}
+            onClick={() => query.refetch()}
+          >
+            update manually
+          </button>
+        </div>
         <div>
           <a
             href="https://react-query.tanstack.com/quick-start"
