@@ -1,8 +1,7 @@
-import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
-import styles from "./header.module.css";
+import styles from "./auth.module.css";
 
-export default function Header() {
+export default function AuthHeader() {
   const { data: session, status } = useSession();
   const loading = status === "loading";
 

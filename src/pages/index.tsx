@@ -1,14 +1,14 @@
-import type { NextPage } from "next";
 import Image from "next/image";
 import ThemeToggle from "@/components/examples/theme-toggle";
 import FetchExample from "@/components/examples/fetch";
 import Counter from "@/components/examples/counter";
-import { Container, Box, Row, Col, Text } from "@/components/elements";
+import AuthHeader from "@/components/examples/auth";
+import { Text } from "@/components/elements";
+import { Container, Box, Row, Col } from "@/components/layout";
 import { IntlExample } from "@/components/examples/intl";
 import { styled } from "@/theme/stitches.config";
 
-const Home: NextPage = () => {
-  
+export default function Home() {
   return (
     <Container
       size="lg"
@@ -18,6 +18,7 @@ const Home: NextPage = () => {
         minHeight: "100vh",
       }}
     >
+      <AuthHeader />
       <Text
         as="h1"
         css={{
@@ -72,7 +73,7 @@ const Home: NextPage = () => {
       </Box>
     </Container>
   );
-};
+}
 
 const Heading = styled("h2", {
   bgColor: "$primaryBg",
@@ -88,5 +89,3 @@ const Item = styled("div", {
   textAlign: "center",
   borderRadius: "$md",
 });
-
-export default Home;

@@ -1,4 +1,4 @@
-import { Box } from "@/components/elements";
+import { Box } from "@/components/layout";
 import { locales } from "@i18n";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";

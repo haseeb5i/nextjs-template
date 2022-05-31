@@ -1,4 +1,4 @@
-import { Box } from "@/components/elements";
+import { Box } from "@/components/layout";
 import React, { useEffect, useState } from "react";
 
 const API_URL = "https://v2.jokeapi.dev/joke/Programming?type=twopart";

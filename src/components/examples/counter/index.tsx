@@ -1,6 +1,6 @@
-import styles from "./counter.module.css";
-import { Box } from "@/components/elements";
+import { Box } from "@/components/layout";
 import { useStore } from "@/store";
+import styles from "./counter.module.css";
 
 function Counter() {
   const { count, inc, dec } = useStore();

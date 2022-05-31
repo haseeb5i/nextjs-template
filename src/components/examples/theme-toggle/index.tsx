@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { Box, Button} from "@/components/elements";
+import { Button } from "@/components/elements";
+import { Box } from "@/components/layout";
 
 const ThemeToggle = () => {
   const { setTheme, resolvedTheme } = useTheme();
