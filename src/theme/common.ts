@@ -164,7 +164,7 @@ const defaultUtils = {
   bgColor: (value: Stitches.PropertyValue<"backgroundColor">) => ({
     backgroundColor: value,
   }),
-  
+
   size: (value: Stitches.PropertyValue<"width">) => ({
     width: value,
     height: value,

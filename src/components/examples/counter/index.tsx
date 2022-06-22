@@ -16,7 +16,7 @@ function Counter() {
           borderRadius: "$sm",
         }}
       >
-        Global state management with zustand 
+        Global state management with zustand
       </Box>
       <div className={styles.row}>
         <button

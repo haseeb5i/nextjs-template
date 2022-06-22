@@ -1,9 +1,7 @@
 import { Html, Head, Main, NextScript } from "next/document";
 import { getCssText } from "@/theme/stitches.config";
 
-
 export default function Document() {
-
   return (
     <Html>
       <Head>
