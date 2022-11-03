@@ -6,9 +6,9 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  // experimental: {
-  //   appDir: true,
-  // },
+  experimental: {
+    appDir: true,
+  },
   images: {
     domains: ["avatars.githubusercontent.com"],
   },

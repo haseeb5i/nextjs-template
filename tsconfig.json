@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -16,17 +20,33 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@i18n": ["i18n"]
-    }
+      "@/*": [
+        "src/*"
+      ],
+      "@i18n": [
+        "i18n"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "jest.config.js",
-    "jest.setup.js"
+    "jest.setup.js",
+    ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "**/*.test.ts"],
-  "typeRoots": ["node_modules/@types", "./typings"]
+  "exclude": [
+    "node_modules",
+    "**/*.test.ts"
+  ],
+  "typeRoots": [
+    "node_modules/@types",
+    "./typings"
+  ]
 }
