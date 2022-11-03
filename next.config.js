@@ -1,4 +1,3 @@
-const nextTranslate = require("next-translate");
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
@@ -6,10 +5,13 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  i18n: {
-    locales: ["en", "sr", "es"],
-    defaultLocale: "en",
+  swcMinify: true,
+  // experimental: {
+  //   appDir: true,
+  // },
+  images: {
+    domains: ["avatars.githubusercontent.com"],
   },
 };
 
-module.exports = withBundleAnalyzer(nextTranslate(nextConfig));
+module.exports = withBundleAnalyzer(nextConfig);

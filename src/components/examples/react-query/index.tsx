@@ -1,5 +1,6 @@
 import { Box } from "@/components/layout";
 import { useQuery } from "@tanstack/react-query";
+// import { useLaunchesQuery } from "@/generated";
 
 interface Joke {
   id: number;
@@ -16,14 +17,15 @@ async function getJoke(): Promise<Joke> {
 }
 
 const ReactQueryExample = () => {
-  const query = useQuery(["joke"], getJoke);
+  // const launchesQuery = useLaunchesQuery({ limit: 10 });
+  const jokeQuery = useQuery(["joke"], getJoke);
 
-  if (query.isLoading) {
+  if (jokeQuery.isLoading) {
     return <div>Loading...</div>;
   }
 
-  if (query.error instanceof Error) {
-    return <div>An error has occurred: {query.error.message} </div>;
+  if (jokeQuery.error instanceof Error) {
+    return <div>An error has occurred: {jokeQuery.error.message} </div>;
   }
 
   return (
@@ -35,24 +37,47 @@ const ReactQueryExample = () => {
           p: "$md",
           mb: "$5",
           borderRadius: "$sm",
-          textTransform: "",
         }}
       >
-        React Query Data Fetch Example
+        Server state management with react-query
       </Box>
       <Box css={{ px: "$md" }}>
-        <p>Programmer Jokes {`#${query.data?.id}`}</p>
-        <p>{query.data?.setup}</p>
-        <p>{query.data?.delivery}</p>
-      </Box>
-      <Box css={{ px: "$md" }}>
-        <div>{query.isFetching ? "Updating..." : "Fetch Done"}</div>
-        <p>
-          <button onClick={() => query.refetch()}>update manually</button>
-        </p>
+        {/* <div>
+          {launchesQuery.data?.launchesPast?.map((launch) => {
+            return (
+              <div key={launch?.id}>
+                <span>{launch?.id}</span> <span>{launch?.mission_name}</span>
+              </div>
+            );
+          })}
+        </div>
+        <div style={{ marginBlock: "7px" }}>
+          {launchesQuery.isFetching ? "Updating..." : "Fetch Done"}
+          <button
+            style={{ marginLeft: "10px" }}
+            onClick={() => launchesQuery.refetch()}
+          >
+            update manually
+          </button>
+        </div> */}
+
+        <div>
+          <h3>{jokeQuery.data?.setup}</h3>
+          <p>{jokeQuery.data?.delivery}</p>
+        </div>
+        <div style={{ marginBlock: "7px" }}>
+          {jokeQuery.isFetching ? "Updating..." : "Fetch Done"}
+          <button
+            style={{ marginLeft: "10px" }}
+            onClick={() => jokeQuery.refetch()}
+          >
+            update manually
+          </button>
+        </div>
+
         <div>
           <a
-            href="https://react-query.tanstack.com/quick-start"
+            href="https://tanstack.com/query/v4/docs/overview"
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -4,7 +4,7 @@ import ReactQueryExample from "@/components/examples/react-query";
 import Counter from "@/components/examples/counter";
 import { Text } from "@/components/elements";
 import { Container, Box, Row, Col } from "@/components/layout";
-import { IntlExample } from "@/components/examples/intl";
+// import { IntlExample } from "@/components/examples/intl";
 import { styled } from "@/theme/stitches.config";
 
 export default function Home() {
@@ -24,6 +24,7 @@ export default function Home() {
           textGradient: "to right, $blue11, $purple11",
           fontSize: 60,
           fontWeight: "$bold",
+          paddingBottom: 10,
         }}
       >
         Nextjs Template
@@ -32,7 +33,7 @@ export default function Home() {
       <ThemeToggle />
       <ReactQueryExample />
       <Counter />
-      <IntlExample />
+      {/* <IntlExample /> */}
 
       <Heading>Included components example</Heading>
       <Row gap={2} className="asd">
