@@ -1,8 +1,7 @@
 import Image from "next/image";
 import ThemeToggle from "@/components/examples/theme-toggle";
-import FetchExample from "@/components/examples/fetch";
+import ReactQueryExample from "@/components/examples/react-query";
 import Counter from "@/components/examples/counter";
-import AuthHeader from "@/components/examples/auth";
 import { Text } from "@/components/elements";
 import { Container, Box, Row, Col } from "@/components/layout";
 import { IntlExample } from "@/components/examples/intl";
@@ -18,7 +17,6 @@ export default function Home() {
         minHeight: "100vh",
       }}
     >
-      <AuthHeader />
       <Text
         as="h1"
         css={{
@@ -32,7 +30,7 @@ export default function Home() {
       </Text>
 
       <ThemeToggle />
-      <FetchExample />
+      <ReactQueryExample />
       <Counter />
       <IntlExample />
 
