@@ -3,7 +3,7 @@ import ThemeToggle from "@/components/examples/theme-toggle";
 import ReactQueryExample from "@/components/examples/react-query";
 import { Text } from "@/components/elements";
 import { Container, Box, Row, Col } from "@/components/layout";
-// import { IntlExample } from "@/components/examples/intl";
+import { IntlExample } from "@/components/examples/intl";
 import { styled } from "@/theme/stitches.config";
 import Counter from "@/components/examples/redux";
 
@@ -34,7 +34,7 @@ export default function Home() {
 
       <ReactQueryExample />
       <Counter />
-      {/* <IntlExample /> */}
+      <IntlExample />
 
       <Heading>Included components example</Heading>
       <Row gap={2} className="asd">
