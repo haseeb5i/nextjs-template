@@ -1,7 +1,6 @@
 import Image from "next/image";
 import ThemeToggle from "@/components/examples/theme-toggle";
 import ReactQueryExample from "@/components/examples/react-query";
-import Counter from "@/components/examples/counter";
 import { Text } from "@/components/elements";
 import { Container, Box, Row, Col } from "@/components/layout";
 // import { IntlExample } from "@/components/examples/intl";
@@ -32,7 +31,6 @@ export default function Home() {
 
       <ThemeToggle />
       <ReactQueryExample />
-      <Counter />
       {/* <IntlExample /> */}
 
       <Heading>Included components example</Heading>

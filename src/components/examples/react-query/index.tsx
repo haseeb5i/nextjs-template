@@ -1,6 +1,7 @@
 import { Box } from "@/components/layout";
 import { useQuery } from "@tanstack/react-query";
-// import { useLaunchesQuery } from "@/generated";
+import request from "graphql-request";
+import { graphql } from "@/gql";
 
 interface Joke {
   id: number;
@@ -10,14 +11,39 @@ interface Joke {
   safe: boolean;
 }
 
+// using built-in fetch, alternatively you can use axios
 async function getJoke(): Promise<Joke> {
   return fetch("https://v2.jokeapi.dev/joke/Programming?type=twopart").then(
     (resp) => resp.json()
   );
 }
 
+export const launchesDocument = graphql(/* GraphQL */ `
+  query launches($limit: Int) {
+    launchesPast(limit: $limit) {
+      mission_name
+      links {
+        mission_patch_small
+        mission_patch
+      }
+      launch_year
+      rocket {
+        rocket_name
+      }
+      id
+    }
+  }
+`);
+
+// this is auto typed by graphql-codegen
+async function getLaunches(limit: number) {
+  return request("https://api.spacex.land/graphql/", launchesDocument, {
+    limit,
+  });
+}
+
 const ReactQueryExample = () => {
-  // const launchesQuery = useLaunchesQuery({ limit: 10 });
+  const launchesQuery = useQuery(["launches"], () => getLaunches(10));
   const jokeQuery = useQuery(["joke"], getJoke);
 
   if (jokeQuery.isLoading) {
@@ -42,7 +68,8 @@ const ReactQueryExample = () => {
         Server state management with react-query
       </Box>
       <Box css={{ px: "$md" }}>
-        {/* <div>
+        <h3>Graphql</h3>
+        <div>
           {launchesQuery.data?.launchesPast?.map((launch) => {
             return (
               <div key={launch?.id}>
@@ -59,10 +86,11 @@ const ReactQueryExample = () => {
           >
             update manually
           </button>
-        </div> */}
+        </div>
 
+        <h3>Rest API</h3>
         <div>
-          <h3>{jokeQuery.data?.setup}</h3>
+          <h4>{jokeQuery.data?.setup}</h4>
           <p>{jokeQuery.data?.delivery}</p>
         </div>
         <div style={{ marginBlock: "7px" }}>
