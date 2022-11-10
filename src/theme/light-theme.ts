@@ -1,4 +1,4 @@
-import { blue, purple, green, yellow, red, slate } from "@radix-ui/colors";
+import { blue, green, yellow, red, slate } from "./colors";
 
 const lightTheme = {
   colors: {
@@ -8,7 +8,6 @@ const lightTheme = {
     backgroundContrast: "$white",
     //semantic colors
     ...blue,
-    ...purple,
     ...green,
     ...yellow,
     ...red,
