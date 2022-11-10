@@ -5,6 +5,7 @@ import { Text } from "@/components/elements";
 import { Container, Box, Row, Col } from "@/components/layout";
 // import { IntlExample } from "@/components/examples/intl";
 import { styled } from "@/theme/stitches.config";
+import Counter from "@/components/examples/redux";
 
 export default function Home() {
   return (
@@ -30,7 +31,9 @@ export default function Home() {
       </Text>
 
       <ThemeToggle />
+
       <ReactQueryExample />
+      <Counter />
       {/* <IntlExample /> */}
 
       <Heading>Included components example</Heading>
