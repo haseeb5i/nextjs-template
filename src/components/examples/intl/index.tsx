@@ -19,7 +19,7 @@ export const IntlExample = () => {
           textTransform: "",
         }}
       >
-        Internationalization using {t("home:plugin-docs")}
+        Internationalization using next-translate
       </Box>
       <Box css={{ px: "$md", mb: "$5" }}>
         <div dir={isRTL ? "rtl" : "ltr"}>
@@ -64,16 +64,14 @@ export const IntlExample = () => {
           <style jsx>{`
             .grid {
               display: flex;
-              align-items: center;
-              justify-content: center;
+              gap: 1.5rem;
               flex-wrap: wrap;
 
               max-width: 800px;
-              margin-top: 3rem;
+              margin-top: 2.5rem;
             }
 
             .card {
-              margin: 1rem;
               flex-basis: 45%;
               padding: 1.5rem;
               text-align: left;
@@ -117,7 +115,7 @@ export const IntlExample = () => {
           `}</style>
         </div>
       </Box>
-      <Box css={{ px: "$md", mb: "$5" }}>
+      <Box css={{ px: "$md", mb: "$5" }} dir={isRTL ? "rtl" : "ltr"}>
         <a
           href="https://github.com/vinissimus/next-translate"
           target="_blank"
