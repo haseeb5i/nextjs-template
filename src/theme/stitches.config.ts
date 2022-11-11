@@ -18,17 +18,20 @@ const stitches = createStitches({
   },
 });
 
-export const styled = stitches.styled;
-export const css = stitches.css;
-export const globalCss = stitches.globalCss;
-export const keyframes = stitches.keyframes;
-export const createTheme = stitches.createTheme;
-export const getCssText = stitches.getCssText;
-export const theme = stitches.theme;
-export const config = stitches.config;
+export const {
+  styled,
+  css,
+  globalCss,
+  keyframes,
+  createTheme,
+  getCssText,
+  theme,
+  config,
+} = stitches;
 
 export const darkTheme = createTheme("dark-theme", darkThemeOpts);
 
-export type VariantProps<T> = Stitches.VariantProps<T>;
 export type CSS = Stitches.CSS<typeof config>;
+export type VariantProps<T extends { [key: symbol | string]: any }> =
+  Stitches.VariantProps<T>;
 export type StitchesTheme = typeof theme;
