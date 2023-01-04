@@ -1,5 +1,4 @@
 import React from "react";
-import Layout from "@/components/examples/auth/Layout";
 import useUser from "@/hooks/useUser";
 
 // Make sure to check https://nextjs.org/docs/basic-features/layouts for more info on how to use layouts
@@ -7,7 +6,7 @@ export default function SgProfile() {
   const { user } = useUser({ redirectTo: "/login" });
 
   return (
-    <Layout>
+    <div>
       <h1>Your GitHub profile</h1>
       <h2>
         This page uses{" "}
@@ -15,8 +14,7 @@ export default function SgProfile() {
           Static Generation (SG)
         </a>{" "}
         {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-        and the <a href="/api/user">/api/user</a> route (using{" "}
-        <a href="https://github.com/vercel/swr">vercel/SWR</a>)
+        and the <a href="/api/user">/api/user</a> route
       </h2>
       {user && (
         <>
@@ -31,6 +29,6 @@ export default function SgProfile() {
           <pre>{JSON.stringify(user, null, 2)}</pre>
         </>
       )}
-    </Layout>
+    </div>
   );
 }

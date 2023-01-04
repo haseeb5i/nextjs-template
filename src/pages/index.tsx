@@ -1,11 +1,12 @@
 import Image from "next/image";
 import ThemeToggle from "@/components/examples/theme-toggle";
 import ReactQueryExample from "@/components/examples/react-query";
+import AuthExample from "@/components/examples/auth";
+import Counter from "@/components/examples/redux";
 import { Text } from "@/components/elements";
 import { Container, Box, Row, Col } from "@/components/layout";
 import { IntlExample } from "@/components/examples/intl";
 import { styled } from "@/theme/stitches.config";
-import Counter from "@/components/examples/redux";
 
 export default function Home() {
   return (
@@ -30,8 +31,8 @@ export default function Home() {
         Nextjs Template
       </Text>
 
+      <AuthExample />
       <ThemeToggle />
-
       <ReactQueryExample />
       <Counter />
       <IntlExample />

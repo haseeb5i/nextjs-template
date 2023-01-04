@@ -1,12 +1,18 @@
+import useUser from "@/hooks/useUser";
 import { FormEvent } from "react";
 
-export default function Form({
-  errorMessage,
-  onSubmit,
-}: {
+type FormProps = {
   errorMessage: string;
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
-}) {
+};
+
+export default function Form({ errorMessage, onSubmit }: FormProps) {
+  const { user } = useUser();
+
+  if (user?.isLoggedIn) {
+    return <div>Already logged in</div>;
+  }
+
   return (
     <form onSubmit={onSubmit}>
       <label>
@@ -24,14 +30,21 @@ export default function Form({
           display: flex;
           flex-flow: column;
         }
+        form {
+          max-width: 600px;
+          margin: 0 auto;
+        }
         label > span {
           font-weight: 600;
         }
         input {
           padding: 8px;
-          margin: 0.3rem 0 1rem;
+          margin: 0.8rem 0 1rem;
           border: 1px solid #ccc;
           border-radius: 4px;
+        }
+        button {
+          min-height: 2rem;
         }
         .error {
           color: brown;

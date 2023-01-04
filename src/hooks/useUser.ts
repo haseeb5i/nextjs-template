@@ -1,10 +1,11 @@
 import { useCallback, useEffect } from "react";
-import Router from "next/router";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import Router from "next/router";
 import type { User } from "@/pages/api/user";
 
-export function getUser(): Promise<User> {
-  return fetch("/api/user").then((res) => res.json());
+export async function getUser(): Promise<User> {
+  const res = await fetch("/api/user");
+  return res.json();
 }
 
 export default function useUser({

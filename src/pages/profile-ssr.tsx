@@ -2,7 +2,6 @@ import React from "react";
 import { withIronSessionSsr } from "iron-session/next";
 import { sessionOptions } from "@/lib/session";
 import { User } from "@/pages/api/user";
-import Layout from "@/components/examples/auth/Layout";
 
 import { InferGetServerSidePropsType } from "next";
 
@@ -10,7 +9,7 @@ export default function SsrProfile({
   user,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
-    <Layout>
+    <div>
       <h1>Your GitHub profile</h1>
       <h2>
         This page uses{" "}
@@ -35,7 +34,7 @@ export default function SsrProfile({
           <pre>{JSON.stringify(user, null, 2)}</pre>
         </>
       )}
-    </Layout>
+    </div>
   );
 }
 
