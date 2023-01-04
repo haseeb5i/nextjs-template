@@ -1,4 +1,11 @@
-import { blueDark, slateDark, greenDark, yellowDark, redDark } from "./colors";
+import {
+  blueDark,
+  slateDark,
+  greenDark,
+  yellowDark,
+  redDark,
+  purpleDark,
+} from "./colors";
 
 const darkTheme = {
   colors: {
@@ -11,6 +18,7 @@ const darkTheme = {
     ...greenDark,
     ...yellowDark,
     ...redDark,
+    ...purpleDark,
     ...slateDark,
     // brand colors
     primaryLight: "$blue50",

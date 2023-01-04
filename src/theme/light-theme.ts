@@ -1,4 +1,4 @@
-import { blue, green, yellow, red, slate } from "./colors";
+import { blue, green, yellow, red, slate, purple } from "./colors";
 
 const lightTheme = {
   colors: {
@@ -11,6 +11,7 @@ const lightTheme = {
     ...green,
     ...yellow,
     ...red,
+    ...purple,
     ...slate,
     // misc
     link: "$blue8",
