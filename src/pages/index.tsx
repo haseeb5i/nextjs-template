@@ -1,8 +1,9 @@
 import Image from "next/image";
 import ThemeToggle from "@/components/examples/theme-toggle";
-import ReactQueryExample from "@/components/examples/react-query";
+import ReactQueryExample from "@/components/examples/query";
 import AuthExample from "@/components/examples/auth";
 import Counter from "@/components/examples/redux";
+import FormExample from "@/components/examples/form";
 import { Text } from "@/components/elements";
 import { Container, Box, Row, Col } from "@/components/layout";
 import { IntlExample } from "@/components/examples/intl";
@@ -35,6 +36,7 @@ export default function Home() {
       <ThemeToggle />
       <ReactQueryExample />
       <Counter />
+      <FormExample />
       <IntlExample />
 
       <Heading>Included components example</Heading>
